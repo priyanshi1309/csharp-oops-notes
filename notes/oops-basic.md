@@ -174,8 +174,7 @@ Example in concept:
 
 ---
 ```csharp
-// Online C# Editor for free
-// Write, Edit and Run your C# code using C# Online Compiler
+
 using System;
 
 namespace OOPBasicsDemo
