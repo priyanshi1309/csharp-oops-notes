@@ -21,7 +21,7 @@ p.Introduce();
 ## 2. Properties and Fields
 - **Field**: A variable defined inside a class that holds data.
 - **Property**: Provides controlled access to fields using `get` and `set`.
-
+---
 ```csharp
 public class Car
 {
@@ -35,7 +35,7 @@ public class Car
 Car car = new Car();
 car.Model = "Tesla";
 Console.WriteLine(car.Model);
-
+---
 ## 3. Methods
 - A block of code inside a class that performs a specific task.
 
@@ -46,7 +46,7 @@ public class Calculator
 }
 Calculator calc = new Calculator();
 Console.WriteLine(calc.Add(5, 3));
-
+---
 ## 4. Constructor
 A constructor is a special method that initializes objects.  
 It has the same name as the class and no return type.
