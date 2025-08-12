@@ -193,3 +193,106 @@ You know **what** it does, not **how** it does it.
 | Abstraction    | Hiding details, exposing only essentials      | Abstract Classes, Interfaces                       |
 
 ---
+```csharp
+using System;
+
+namespace OOPPillarsDemo
+{
+    // 1️⃣ Encapsulation — class hides its fields and controls access via properties
+    public class BankAccount
+    {
+        private decimal balance; // hidden data (private)
+
+        public decimal Balance   // public read-only property
+        {
+            get { return balance; }
+            private set { balance = value; }
+        }
+
+        public void Deposit(decimal amount)
+        {
+            if (amount > 0)
+                Balance += amount;
+        }
+
+        public void Withdraw(decimal amount)
+        {
+            if (amount > 0 && amount <= Balance)
+                Balance -= amount;
+        }
+    }
+
+    // Base class for Inheritance + Polymorphism + Abstraction
+    public abstract class Animal   // 4️⃣ Abstraction — cannot be instantiated
+    {
+        public string Name { get; set; }
+
+        public abstract void Speak(); // abstract method to be implemented by derived classes
+    }
+
+    // 2️⃣ Inheritance — Dog inherits from Animal
+    public class Dog : Animal
+    {
+        public override void Speak()   // 3️⃣ Polymorphism — method overridden
+        {
+            Console.WriteLine($"{Name} says: Woof!");
+        }
+    }
+
+    // Another derived class for Polymorphism
+    public class Cat : Animal
+    {
+        public override void Speak()
+        {
+            Console.WriteLine($"{Name} says: Meow!");
+        }
+    }
+
+    // Interface for extra abstraction
+    public interface IFlyable
+    {
+        void Fly();
+    }
+
+    public class Bird : Animal, IFlyable
+    {
+        public override void Speak()
+        {
+            Console.WriteLine($"{Name} says: Tweet!");
+        }
+
+        public void Fly()
+        {
+            Console.WriteLine($"{Name} is flying.");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Encapsulation example
+            Console.WriteLine("=== Encapsulation Example ===");
+            BankAccount account = new BankAccount();
+            account.Deposit(500);
+            account.Withdraw(150);
+            Console.WriteLine($"Account Balance: {account.Balance}");
+
+            // Inheritance, Polymorphism & Abstraction examples
+            Console.WriteLine("\n=== Inheritance, Polymorphism & Abstraction ===");
+            Animal dog = new Dog { Name = "Buddy" };
+            Animal cat = new Cat { Name = "Whiskers" };
+            Animal bird = new Bird { Name = "Tweety" };
+
+            // Polymorphism in action — same method call, different behavior
+            dog.Speak();
+            cat.Speak();
+            bird.Speak();
+
+            // Interface example
+            Console.WriteLine("\n=== Interface Example ===");
+            IFlyable flyingBird = (IFlyable)bird;
+            flyingBird.Fly();
+        }
+    }
+}
