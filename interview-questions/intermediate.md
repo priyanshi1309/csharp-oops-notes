@@ -27,25 +27,26 @@ This file covers common intermediate Object-Oriented Programming questions with 
 ```csharp
 class Base
 {
-public virtual void Show() { Console.WriteLine("Base Show"); }
+  public virtual void Show() { Console.WriteLine("Base Show"); }
 }
 
 class Derived : Base
 {
-public new void Show() { Console.WriteLine("Derived Show"); }
+  public new void Show() { Console.WriteLine("Derived Show"); }
 }
 
 class Program
 {
-static void Main()
-{
-    Base b1 = new Base();
-    b1.Show(); // Output: Base Show
-    Derived d1 = new Derived();
-    d1.Show();  // Output: Derived Show
+  static void Main()
+  {
+      Base b1 = new Base();
+      b1.Show(); // Output: Base Show
+      Derived d1 = new Derived();
+      d1.Show();  // Output: Derived Show
 
-    Base b2 = new Derived();
-    b2.Show();  // Output: Base Show
+      Base b2 = new Derived();
+      b2.Show();  // Output: Base Show
+  }
 }
 ```
 ---
