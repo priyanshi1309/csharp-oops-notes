@@ -47,6 +47,7 @@ static void Main()
     Base b2 = new Derived();
     b2.Show();  // Output: Base Show
 }
+```csharp
 ---
 In the above example:
 
