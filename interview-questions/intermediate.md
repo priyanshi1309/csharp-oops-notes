@@ -107,6 +107,7 @@ public class Person
         Age = age;
     }
 }
+```
 ---
 ## 8. How does C# implement multiple inheritance?
 
