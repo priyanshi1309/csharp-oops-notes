@@ -55,3 +55,108 @@ In the above example:
 - If `Show()` in `Derived` was marked with `override` instead of `new`, then `b2.Show()` would output "Derived Show".
 
 ---
+## 3. Explain sealed classes and sealed methods.
+
+- **Sealed Class:** Cannot be inherited.
+
+- **Sealed Method:** Cannot be overridden further in subclasses.
+
+---
+
+## 4. What is the difference between composition and aggregation?
+
+- **Composition:** Strong ownership, parts cannot exist without the whole.
+
+- **Aggregation:** Weak ownership, parts can exist independently.
+
+---
+
+## 5. What are virtual, override, and abstract keywords?
+
+- **virtual:** Base class method that can be overridden.
+
+- **override:** Derived class method overriding a virtual method.
+
+- **abstract:** Declares a method with no implementation; must be overridden.
+---
+## 6. What is the difference between shallow copy and deep copy?
+
+- **Shallow Copy:** Copies the object’s references, so the new object points to the same referenced objects.
+- **Deep Copy:** Creates a new object and recursively copies all objects it references, creating fully independent copies.
+
+---
+
+## 7. What is constructor chaining?
+
+Calling one constructor from another constructor in the same class or base class to avoid code duplication.
+
+Example:
+
+```csharp
+public class Person
+{
+    public string Name;
+    public int Age;
+
+    public Person() : this("Unknown", 0) { }
+
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+}
+---
+## 8. How does C# implement multiple inheritance?
+
+C# does **not** support multiple inheritance with classes, but supports it through **interfaces**.
+
+---
+
+## 9. What is method hiding? How is it different from method overriding?
+
+- **Method Overriding:** Uses `virtual` and `override` keywords to provide a new implementation for a base class method.
+
+- **Method Hiding:** Uses the `new` keyword to hide the base class method without overriding it.
+
+---
+
+## 10. What are access modifiers and explain `protected internal`?
+
+- `public`: Accessible anywhere.
+
+- `private`: Accessible only within the class.
+
+- `protected`: Accessible within the class and derived classes.
+
+- `internal`: Accessible within the same assembly.
+
+- `protected internal`: Accessible within the same assembly or in derived classes.
+---
+## 11. What is the difference between an abstract class and a sealed class?
+
+- **Abstract Class:** Cannot be instantiated and can contain abstract methods that must be implemented by derived classes.
+- **Sealed Class:** Cannot be inherited by any other class.
+
+---
+
+## 12. What is an interface explicit implementation? Why use it?
+
+- It allows implementing interface members so they are only accessible through the interface, not the class instance directly.
+
+Example:
+
+```csharp
+interface IExample
+{
+    void DoWork();
+}
+
+class MyClass : IExample
+{
+    void IExample.DoWork()
+    {
+        Console.WriteLine("Explicit implementation");
+    }
+}
+```
